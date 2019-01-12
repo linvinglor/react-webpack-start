@@ -1,0 +1,10 @@
+.title {
+    color: red;
+    text-align: center;
+    font-weight: 200;
+}
+/* 使用 :local() 变成局部类 */
+/* 使用 :global() 变成全局类 */
+:global(.cool) {
+    background-color: orangered;
+}
