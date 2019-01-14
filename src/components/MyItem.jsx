@@ -1,8 +1,7 @@
 // 加载模块 react
 import React from "react"
 // 加载组件样式
-import cssMyItem from "@/css/MyItem.css";
-console.log(cssMyItem);
+import cssMyItem from "@/css/MyItem.scss";
 // 创建子组件
 export default function MyItem(props) {
     return <div className={cssMyItem.textBox+" cool"}>

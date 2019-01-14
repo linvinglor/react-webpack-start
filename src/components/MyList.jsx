@@ -6,7 +6,12 @@ import React from "react"
 import MyItem from "@/components/MyItem";
 
 // 加载组件样式
-import cssMyList from "@/css/MyList.css";
+import cssMyList from "@/css/MyList.scss";
+
+// 加载 bootstrap.css
+import "bootstrap/dist/css/bootstrap.css";
+
+
 // 创建 MyList主组件
 export default class MyList extends React.Component {
     constructor() {
@@ -45,6 +50,7 @@ export default class MyList extends React.Component {
     render() {
         return <div>
             <h1 className={cssMyList.title}>这是评论列表</h1>
+            <button className="btn btn-success">按钮</button>
             {this.state.MyList.map(item=> <MyItem {...item} key={item.id}></MyItem>)}
         </div>
     };

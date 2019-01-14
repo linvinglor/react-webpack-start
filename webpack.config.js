@@ -18,27 +18,46 @@ module.exports = {
     // 第三方模块加载器
     module: {
         // 文件匹配规则
-        rules: [
-            {
-            // 处理 js文件
-            test: /\.(js|jsx)$/,
-            use: 'babel-loader',
-            // 排除 node_modules文件夹下的 JS文件
-            exclude: /node_modules/
+        rules: [{
+                // 处理 js文件
+                test: /\.(js|jsx)$/,
+                use: 'babel-loader',
+                // 排除 node_modules文件夹下的 JS文件
+                exclude: /node_modules/
             },
             {
-            // 处理 css文件
-            test: /\.css$/,
-            use: ['style-loader','css-loader?modules&localIdentName=[path][name]-[local]-[hash:5]'],
-            }
+                // 处理 css文件
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                // 处理图片
+                test: /\.jpg|png|gif|bmp|jpeg$/,
+                use: 'url-loader?limit=1850894&name=[hash:8]-[name].[ext]'
+            },
+            {
+                // 处理字体
+                test: /\.(ttf|woff2|svg|eot|woff)$/,
+                use: 'url-loader'
+            },
+            {
+                // 处理 less文件
+                test: /\.less$/,
+                use: ['style-loader','css-loader','less-loader']
+            },
+            {
+                // 处理 sass文件
+                test: /\.scss$/,
+                use: ['style-loader','css-loader?modules&localIdentName=[path][name]-[local]-[hash:5]','sass-loader']
+            },
         ]
     },
     // 加载路径
     resolve: {
         // 自动识别 文件后缀
-        extensions: ['.js', '.json', '.jsx','.vue'],
+        extensions: ['.js', '.json', '.jsx', '.vue'],
         alias: {
-            "@": path.join(__dirname,"src")
+            "@": path.join(__dirname, "src")
         }
     }
 }
